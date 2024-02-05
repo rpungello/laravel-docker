@@ -9,7 +9,7 @@ jobs:
         os: [ubuntu-latest]
         version: ['7.4', '8.2', '8.3']
         type: ['full', 'min']
-    name: ${{ matrix.os }} - V${{ matrix.version }}/${{ matrix.type }}
+    name: ${{ matrix.os }} - P${{ matrix.version }}/${{ matrix.type }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
