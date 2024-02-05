@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  web:
+    image: rpungello/laravel-nginx
+    ports:
+      - "${WEB_PORT:-80}:80"
+    volumes:
+      - ".:/var/www/html"
+    restart: unless-stopped
+    depends_on:
+      - app
+  app:
+    image: rpungello/laravel-app:8.2
+    volumes:
+      - ".:/var/www/html"
+    restart: unless-stopped
+  worker:
+    image: rpungello/laravel-worker:8.2
+    volumes:
+      - ".:/var/www/html"
+    restart: unless-stopped
+  scheduler:
+    image: rpungello/laravel-scheduler:8.2
+    volumes:
+      - ".:/var/www/html"
+    restart: unless-stopped
