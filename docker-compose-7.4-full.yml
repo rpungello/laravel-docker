@@ -24,3 +24,5 @@ services:
     volumes:
       - ".:/var/www/html"
     restart: unless-stopped
+    depends_on:
+      - worker
